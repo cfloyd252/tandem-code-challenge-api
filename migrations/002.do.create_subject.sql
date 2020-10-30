@@ -1,0 +1,6 @@
+CREATE TABLE "subject" (
+  "id" SERIAL PRIMARY KEY,
+  "total_score" SMALLINT DEFAULT 0,
+  "user_id" INTEGER REFERENCES "user"(id)
+    ON DELETE CASCADE NOT NULL
+);

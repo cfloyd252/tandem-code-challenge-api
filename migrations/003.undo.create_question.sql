@@ -1,0 +1,4 @@
+ALTER TABLE "subject"
+  DROP COLUMN IF EXISTS "head";
+
+DROP TABLE IF EXISTS "question";
