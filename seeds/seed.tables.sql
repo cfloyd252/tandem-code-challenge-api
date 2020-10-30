@@ -16,14 +16,14 @@ VALUES
     '$2a$10$fCWkaGbt7ZErxaxclioLteLUgg4Q3Rp09WW0s/wSLxDKYsaGYUpjG'
   );
 
-INSERT INTO "" ("id", "user_id")
+INSERT INTO "subject" ("id", "name", "user_id")
 VALUES
-  (1, 1);
+  (1, 'Tandem', 1);
 
-INSERT INTO "word" ("id", "language_id", "original", "translation", "next")
+INSERT INTO "question" ("id", "subject_id", "question", "response", "next")
 VALUES
-  (1, 1, 'perdon', 'excuse me', 2),
-  (2, 1, 'gato', 'cat', 3),
+  (1, 1, 'What was Tandem previous name?', 'excuse me', 2),
+  (2, 1, 'In Shakespeare"s play Julius Caesar, Caesar"s last words were...', 'cat', 3),
   (3, 1, 'perro', 'dog', 4),
   (4, 1, 'quien', 'who', 5),
   (5, 1, 'donde', 'where', 6),
