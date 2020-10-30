@@ -4,12 +4,19 @@ const express = require('express')
 const QuestionService = require('./question-service')
 
 const questionRouter = express.Router()
+const jsonBodyParser = express.json()
 
 questionRouter
   .route('/')
   .get(async(req, res, next) => {
     try {
-      const questions = await QuestionService.getQuestions(req.app.get('db'))
+      let questions = await QuestionService.getQuestions(req.app.get('db'))
+
+      questions = questions.map(async(question) => {
+        const responses = await QuestionService.getResponses(req.app.get('db'), question.id)
+
+        return question
+      })
 
       res.json(questions)
     } catch(error) {
