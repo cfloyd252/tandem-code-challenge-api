@@ -10,15 +10,10 @@ questionRouter
   .route('/')
   .get(async(req, res, next) => {
     try {
-      let questions = await QuestionService.getQuestions(req.app.get('db'))
-
-      questions = questions.map(async(question) => {
-        const responses = await QuestionService.getResponses(req.app.get('db'), question.id)
-
-        return question
-      })
+      const questions = await QuestionService.getQuestions(req.app.get('db'))
 
       res.json(questions)
+
     } catch(error) {
       next(error)
     }
